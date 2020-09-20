@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import axios from 'axios';
 
 class Main extends React.Component{
 	constructor(props){
@@ -7,14 +8,25 @@ class Main extends React.Component{
 	this.state = {
 		logged:false,
 		x:true,
-		y:false
+		y:false,
+		arr:null,	
+		}
+		if(localStorage.getItem("data") == "true"){}else{
+		axios.get(`http://localhost:3000/info.json`).then(res => {
+	 			this.setState({arr:res.data})
+	 			console.log(res)
+	 			let array =  JSON.parse(localStorage.getItem("array"))   	 			
+
+	 			localStorage.setItem("array",JSON.stringify(res.data))
+	 			
+	 		})
+	 		
+		localStorage.setItem("array",this.state.arr)
+		}
+		
 	}
 	
-	}
-	componentDidMount(){
-    setInterval(()=>{
-      this.setState({logged:localStorage["logged"]}) },500)
-  }
+   
 	onClick(){
 		localStorage.removeItem("logged")
 		localStorage.setItem("logged",false)
@@ -29,7 +41,7 @@ class Main extends React.Component{
 
 	render(){
 		return(
-			<div>
+			<div style={{backgroundColor:localStorage.getItem('color')}}>
 
 				<div>Main_page</div>
 				<button type="button" onClick={this.onClick1} class="btn btn-primary">true</button>
@@ -38,4 +50,5 @@ class Main extends React.Component{
 			)
 	}
 }
+
 export default Main;

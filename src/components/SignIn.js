@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Redirect} from "react-router-dom"
+import axios from "axios"
 
 class SignIn extends React.Component{
 		constructor(props){
@@ -8,9 +9,24 @@ class SignIn extends React.Component{
 			this.state = {
 				logged:false,
 				login:"",
-				password:""
+				password:"",
+				arr:[
+					{login:"Admin",
+					password:"12345"},
+					{login:"Admin1",
+					password:"12345"},
+					{login:"Admin2",
+					password:"12345"}
+				],
+				now:null,
+				lo:null
 			}
+
 			this.onButtonClickLogged = this.onButtonClickLogged.bind(this);
+   	 	}
+
+   	 	componentDidMount(){
+   	 		
    	 	}
 
 		onButtonClickLogged(event){
@@ -23,25 +39,34 @@ class SignIn extends React.Component{
         const username = document.getElementById("login").value;
         const password = document.getElementById("password").value;
         console.log(username,password)
+        let array = JSON.parse(localStorage.getItem("array"))
+        console.log(this.state.arr)
 
-        if(username === "Admin" && password === "12345" ){
-        	console.log("")
-        	localStorage.setItem("logged",true)
-        	console.log(localStorage.getItem("logged"))
-        	this.setState({logged:true})  
+        	this.setState({arr : array})
+        	this.state.arr.forEach(function(item,i,arr){
+        		if(username === item.login && password === item.password){
+        			console.log("You logged" + item.login + "  " + item.password)
+        			localStorage.setItem("logged","true")
+        			console.log(localStorage.getItem("logged"))
+        			localStorage.setItem("id",item.id);
+        			localStorage.setItem("name",item.name);
+        			localStorage.setItem("surname",item.surname);
+        			localStorage.setItem("color",item.color);
+        			localStorage.setItem("time",item.time);
+        			localStorage.setItem("logged","true")	
+        			document.location.reload();
+        			document.location.reload();
+        			localStorage.setItem("logged","true");
+        			localStorage.setItem("data","true")
 
-
-        }else{
-        	console.log("")
-        	localStorage.setItem("logged",false)
-        	console.log(localStorage.getItem("logged")) 
-        	this.setState({logged:false})
-        	alert("Неправильный логин или пароль")
+        		}
+        		
+        		    		
+        	})
+        	
         }
-        
-
-    }
-
+      
+     
 	render(){
 		
 		if(localStorage.getItem("logged") === "true"){
@@ -67,6 +92,7 @@ class SignIn extends React.Component{
 				  </div>
 				  <br/>
 				  <button type="button" onClick={this.onButtonClickLogged} class="btn btn-primary">Войти</button>
+				   
 				</form>
 
 			</div>

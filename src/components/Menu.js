@@ -5,6 +5,11 @@ import {NavLink} from 'react-router-dom'
 
 class Menu extends React.Component{
 
+
+
+
+
+
 render(){
 	return(
 
@@ -19,11 +24,20 @@ render(){
 
         <li class="nav-item">
           <a class="nav-link" href="/news"><span class="sr-only"></span>Новости</a>
+          
         </li>
-
-        <li class="nav-item">
+        {localStorage.getItem("logged") =="true" ? <li class="nav-item">
           <a class="nav-link " href="/profile"><span class="sr-only"></span>Профиль</a>
-        </li>
+        </li> : ""}
+
+        {localStorage.getItem("logged") == "false" ?  <li class="nav-item">
+          <a class="nav-link " href="/sign-in"><span class="sr-only"></span>Sign-in</a>
+        </li> : ""}
+        
+        {localStorage.getItem("logged") == "false" ? <li class="nav-item">
+          <a class="nav-link " href="/Reg"><span class="sr-only"></span>Registration</a>
+        </li> : ""}
+        
       </ul>
       
     </div>

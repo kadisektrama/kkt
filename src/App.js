@@ -5,6 +5,7 @@ import News from "./components/News"
 import Menu from "./components/Menu"
 import Profile from "./components/Profile"
 import SignIn from "./components/SignIn"
+import Reg from "./components/Reg"
 
 const App = (props) => {
     return (
@@ -16,6 +17,7 @@ const App = (props) => {
               <Route path="/news" component={News} />
               <Route path="/profile" component={Profile}/> } />
               <Route path="/sign-in" component={SignIn} />
+              <Route path="/Reg" component={Reg} />
               
           </Switch>
       </div>
