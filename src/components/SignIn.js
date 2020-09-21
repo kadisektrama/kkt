@@ -7,35 +7,17 @@ class SignIn extends React.Component{
 		constructor(props){
 			super(props);
 			this.state = {
-				logged:false,
-				login:"",
-				password:"",
-				arr:[
-					{login:"Admin",
-					password:"12345"},
-					{login:"Admin1",
-					password:"12345"},
-					{login:"Admin2",
-					password:"12345"}
-				],
-				now:null,
-				lo:null
+				arr:null
 			}
 
 			this.onButtonClickLogged = this.onButtonClickLogged.bind(this);
    	 	}
 
-   	 	componentDidMount(){
-   	 		
-   	 	}
+   	
 
 		onButtonClickLogged(event){
         event.preventDefault();
-        this.setState({
-        		login:document.getElementById("login").value,
-        		password:document.getElementById("password").value
-
-        })
+       
         const username = document.getElementById("login").value;
         const password = document.getElementById("password").value;
         console.log(username,password)

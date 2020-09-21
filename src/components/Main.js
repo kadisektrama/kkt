@@ -6,16 +6,13 @@ class Main extends React.Component{
 	constructor(props){
 	super(props);
 	this.state = {
-		logged:false,
-		x:true,
-		y:false,
-		arr:null,	
+		arr:null	
 		}
 		if(localStorage.getItem("data") == "true"){}else{
 		axios.get(`http://localhost:3000/info.json`).then(res => {
 	 			this.setState({arr:res.data})
 	 			console.log(res)
-	 			let array =  JSON.parse(localStorage.getItem("array"))   	 			
+	 			let array = JSON.parse(localStorage.getItem("array"))   	 			
 
 	 			localStorage.setItem("array",JSON.stringify(res.data))
 	 			
@@ -27,13 +24,13 @@ class Main extends React.Component{
 	}
 	
    
-	onClick(){
+	onClickUnlogged(){
 		localStorage.removeItem("logged")
 		localStorage.setItem("logged",false)
 		console.log(localStorage.getItem("logged"))
 	}
 
-	onClick1(){
+	onClickLogged(){
 		localStorage.removeItem("logged")
 		localStorage.setItem("logged",true)
 		console.log(localStorage.getItem("logged"))
@@ -44,8 +41,8 @@ class Main extends React.Component{
 			<div style={{backgroundColor:localStorage.getItem('color')}}>
 
 				<div>Main_page</div>
-				<button type="button" onClick={this.onClick1} class="btn btn-primary">true</button>
-				<button type="button" onClick={this.onClick} class="btn btn-primary">false</button>
+				<button type="button" onClick={this.onClickLogged} class="btn btn-primary">true</button>
+				<button type="button" onClick={this.onClickUnlogged} class="btn btn-primary">false</button>
 			</div>
 			)
 	}

@@ -6,21 +6,14 @@ class Profile extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {
-			logged:false,
-			x:true,
-			y:false,
-			
+			arr:null
 		}
-	this.onButtonClickLogged = this.onButtonClickLogged.bind(this);
-	console.log(localStorage.getItem('time'))
-				
+	this.onButtonClickLogged = this.onButtonClickLogged.bind(this);			
 	}
 	
 	onButtonClickLogged(event){
         event.preventDefault();
      	localStorage.setItem("logged",false)
-     	this.setState({logged:false})
-     	console.log(localStorage.getItem("logged"))
      	localStorage.setItem("color","white")
      	document.location.reload()
     }
@@ -28,7 +21,6 @@ class Profile extends React.Component{
 	changeColor(){
 		localStorage.setItem("color",document.getElementById('color').value)
 		let array = JSON.parse(localStorage.getItem("array"))
-		let ourId
 		array.forEach(function(item,i,arr){
 			if(localStorage.getItem("id") == item.id){
 				array[i].color = document.getElementById('color').value;
@@ -39,7 +31,6 @@ class Profile extends React.Component{
 	}
 
 	render(){
-//!this.state.logged
 		if (localStorage.getItem("logged") === "false"){
             return <Redirect to="/sign-in" />;
 		}
@@ -57,9 +48,7 @@ class Profile extends React.Component{
 				Информация о вас:
 				<p>Время регистрации: {localStorage.getItem('time')}</p>
 				
-				<button type="button" onClick={this.onButtonClickLogged} class="btn btn-primary">Выйти</button>
-				
-				
+				<button type="button" onClick={this.onButtonClickLogged} class="btn btn-primary">Выйти</button>	
 			</div>
 			)
 	}

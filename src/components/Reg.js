@@ -11,10 +11,7 @@ class Reg extends React.Component{
 		constructor(props){
 			super(props);
 			this.state = {
-				arr:[],
-				isLoaded:null,
-				error:null,
-				false:null,
+				arr:null,	
 				data:"10"
 			}
 			this.onClick = this.onClick.bind(this)
@@ -48,19 +45,7 @@ class Reg extends React.Component{
 	   		}else{
 	   			alert("Длина полей должна быть минимум 7 символа")
 	   		}
-   		}
-
-   	validateComments(input) {
-	   if (input.value.length < 20) {
-		  input.setCustomValidity("Дайте более развернутый ответ.");   
-	   }
-	   else {
-		  // Длина комментария отвечает требованию, 
-		  // поэтому очищаем сообщение об ошибке
-		  input.setCustomValidity("");
-	   }
-	}
-	    
+   		} 
 	    
 
 	render(){
