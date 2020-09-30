@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import axios from 'axios';
 
 class Main extends React.Component{
@@ -8,11 +7,11 @@ class Main extends React.Component{
 	this.state = {
 		arr:null	
 		}
-		if(localStorage.getItem("data") == "true"){}else{
+		if(localStorage.getItem("data") === "true"){}else{
 		axios.get(`http://localhost:3000/info.json`).then(res => {
 	 			this.setState({arr:res.data})
 	 			console.log(res)
-	 			let array = JSON.parse(localStorage.getItem("array"))   	 			
+	 			  	 			
 
 	 			localStorage.setItem("array",JSON.stringify(res.data))
 	 			
@@ -41,8 +40,8 @@ class Main extends React.Component{
 			<div style={{backgroundColor:localStorage.getItem('color')}}>
 
 				<div>Main_page</div>
-				<button type="button" onClick={this.onClickLogged} class="btn btn-primary">true</button>
-				<button type="button" onClick={this.onClickUnlogged} class="btn btn-primary">false</button>
+				<button type="button" onClick={this.onClickLogged} className="btn btn-primary">true</button>
+				<button type="button" onClick={this.onClickUnlogged} className="btn btn-primary">false</button>
 			</div>
 			)
 	}

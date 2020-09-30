@@ -1,7 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {Redirect} from "react-router-dom"
-import axios from "axios"
+
 
 class SignIn extends React.Component{
 		constructor(props){
@@ -58,22 +57,22 @@ class SignIn extends React.Component{
 			<div>
 
 				<form>
-				  <div class="row">
-				    <div class="col">
+				  <div className="row">
+				    <div className="col">
 				      <input type="text" 
-				        class="form-control" 
+				        className="form-control" 
 				        id="login"
 				        placeholder="Login"/>
 				    </div>
-				    <div class="col">
+				    <div className="col">
 				      <input type="password" 
 				      id="password" 
-				       class="form-control" 
+				       className="form-control" 
 				       placeholder="Password"/>
 				    </div>
 				  </div>
 				  <br/>
-				  <button type="button" onClick={this.onButtonClickLogged} class="btn btn-primary">Войти</button>
+				  <button type="button" onClick={this.onButtonClickLogged} className="btn btn-primary">Войти</button>
 				   
 				</form>
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {Redirect} from "react-router-dom"
 
 class Profile extends React.Component{
@@ -22,7 +21,7 @@ class Profile extends React.Component{
 		localStorage.setItem("color",document.getElementById('color').value)
 		let array = JSON.parse(localStorage.getItem("array"))
 		array.forEach(function(item,i,arr){
-			if(localStorage.getItem("id") == item.id){
+			if(localStorage.getItem("id") === item.id){
 				array[i].color = document.getElementById('color').value;
 				localStorage.setItem("array",JSON.stringify(array))
 			}
@@ -42,13 +41,13 @@ class Profile extends React.Component{
 				<div><b>Profile:</b></div><br/>
 				<div>Name:  {localStorage.getItem('name')}</div>
 				<div>Surname: {localStorage.getItem('surname')}</div><br/>
-				<div>Впишите цвет на который хотите поменять:</div>
+				<div>Change background color:</div>
 				<input id="color" type="text"></input>
-				<button onClick={this.changeColor}>Поменять</button><br/>
-				Информация о вас:
-				<p>Время регистрации: {localStorage.getItem('time')}</p>
+				<button onClick={this.changeColor}>change</button><br/>
+				<b>Information about me:</b>
+				<p>Registration time: {localStorage.getItem('time')}</p>
 				
-				<button type="button" onClick={this.onButtonClickLogged} class="btn btn-primary">Выйти</button>	
+				<button type="button" onClick={this.onButtonClickLogged} class="btn btn-primary">Sign out</button>	
 			</div>
 			)
 	}
