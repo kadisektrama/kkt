@@ -24,8 +24,10 @@ class Profile extends React.Component{
 			if(localStorage.getItem("id") === item.id){
 				array[i].color = document.getElementById('color').value;
 				localStorage.setItem("array",JSON.stringify(array))
+
 			}
 		})
+		document.location.reload()
 
 	}
 
@@ -47,7 +49,7 @@ class Profile extends React.Component{
 				<b>Information about me:</b>
 				<p>Registration time: {localStorage.getItem('time')}</p>
 				
-				<button type="button" onClick={this.onButtonClickLogged} class="btn btn-primary">Sign out</button>	
+				<button type="button" onClick={this.onButtonClickLogged} className="btn btn-primary">Sign out</button>	
 			</div>
 			)
 	}

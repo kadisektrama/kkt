@@ -24,7 +24,7 @@ class SignIn extends React.Component{
         console.log(this.state.arr)
 
         	this.setState({arr : array})
-        	this.state.arr.forEach(function(item,i,arr){
+        	array.forEach(function(item,i,arr){
         		if(username === item.login && password === item.password){
         			console.log("You logged" + item.login + "  " + item.password)
         			localStorage.setItem("logged","true")
@@ -41,9 +41,12 @@ class SignIn extends React.Component{
         			localStorage.setItem("data","true")
 
         		}
-        		
+
         		    		
         	})
+        	if(localStorage.getItem("logged") === "false"){
+        		alert("Enter login and password again")
+        	}
         	
         }
       
@@ -72,7 +75,7 @@ class SignIn extends React.Component{
 				    </div>
 				  </div>
 				  <br/>
-				  <button type="button" onClick={this.onButtonClickLogged} className="btn btn-primary">Войти</button>
+				  <button type="button" onClick={this.onButtonClickLogged} className="btn btn-primary">Sig In</button>
 				   
 				</form>
 
