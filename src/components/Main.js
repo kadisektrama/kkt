@@ -39,9 +39,13 @@ class Main extends React.Component{
 		return(
 			<div style={{backgroundColor:localStorage.getItem('color')}}>
 
-				<div>Main_page</div>
-				<button type="button" onClick={this.onClickLogged} className="btn btn-primary">true</button>
-				<button type="button" onClick={this.onClickUnlogged} className="btn btn-primary">false</button>
+				<div align="center"><b>Main_page</b></div>
+				<p>Здесь вы может найти различную информацию по поводу книг.</p>
+				
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diem 
+  nonummy nibh euismod tincidunt ut lacreet dolore magna aliguam erat volutpat. 
+  Ut wisis enim ad minim veniam, quis nostrud exerci tution ullamcorper suscipit 
+  lobortis nisl ut aliquip ex ea commodo consequat.</p>
 			</div>
 			)
 	}
