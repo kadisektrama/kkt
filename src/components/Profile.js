@@ -21,7 +21,7 @@ class Profile extends React.Component{
 		localStorage.setItem("color",document.getElementById('color').value)
 		let array = JSON.parse(localStorage.getItem("array"))
 		array.forEach(function(item,i,arr){
-			if(localStorage.getItem("id") === item.id){
+			if(localStorage.getItem("id") == item.id){
 				array[i].color = document.getElementById('color').value;
 				localStorage.setItem("array",JSON.stringify(array))
 

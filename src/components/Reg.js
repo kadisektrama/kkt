@@ -32,7 +32,7 @@ class Reg extends React.Component{
 	   			document.location.reload()
 	   			document.location.reload()
 	   		}else{
-	   			alert("Длина полей должна быть минимум 7 символа")
+	   			alert("Fields must be at least 7 characters long")
 	   		}
    		} 
 	    
