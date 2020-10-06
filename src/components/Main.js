@@ -40,7 +40,7 @@ class Main extends React.Component{
 			<div style={{backgroundColor:localStorage.getItem('color')}}>
 
 				<div align="center"><b>Main_page</b></div>
-				<p>Здесь вы может найти различную информацию по поводу книг.</p>
+				<p>information about book.</p>
 				
 				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diem 
   nonummy nibh euismod tincidunt ut lacreet dolore magna aliguam erat volutpat. 
